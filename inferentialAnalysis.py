@@ -27,7 +27,7 @@ rawData, df = generateDataset('simpsons_paradox.csv')
 
 print("Does gender correlate with admissions?")
 men = df[(df['Gender']=='Male')]
-women = df[(df['Gender']=='Male')]
+women = df[(df['Gender']=='Female')]
 runTTest(men, women, 'Admitted')
 
 print('Does department correlate with admissions?')
@@ -39,4 +39,19 @@ moreComplex = 'Admitted ~ C(Department) + C(Gender)'
 runAnova(rawData,moreComplex)
 
 
-#Monday - Problem 1
+#Monday - Problem 2
+rawdata2, df = generateDataset('simpsons_paradox_cleaned.csv')
+
+print("Does gender correlate with admissions?")
+men = df[(df['Gender']=='Male')]
+women = df[(df['Gender']=='Female')]
+runTTest(men, women, 'Admitted')
+
+print('Does department correlate with admissions?')
+simpleFormula = 'Admitted ~ C(Department)'
+runAnova(rawData,simpleFormula)
+
+print("Do gender and department correlate with admissions?")
+moreComplex = 'Admitted ~ C(Department) + C(Gender)'
+runAnova(rawData,moreComplex)
+
